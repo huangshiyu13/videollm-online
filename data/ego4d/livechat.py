@@ -118,5 +118,5 @@ def build_ego4d_goalstep_livechat_trainval(**kwargs):
 if __name__ == '__main__':
     build_ego4d_goalstep_livechat_trainval(
         is_training=True, augmentation=False, embed_mark='2fps_384_1+3x3', system_prompt='', tokenizer=None,
-        frame_fps=2, vision_pretrained='google/siglip-large-patch16-384'
+        frame_fps=2, vision_pretrained='/workspace/intern_ckpt/Mirror/hf-mirror/models/google/siglip-large-patch16-384'
     )

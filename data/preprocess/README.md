@@ -15,7 +15,7 @@ python -m data.preprocess.ffmpeg --num_gpus 8 --frame_fps 2 --frame_resolution 3
 #### Encode sampled 2fps_384 video frames
 
 ```
-python -m data.preprocess.encode --num_gpus 8 --video_dir datasets/ego4d/v2/full_scale_2fps_384 --vision_pretrained google/siglip-large-patch16-384
+python -m data.preprocess.encode --num_gpus 8 --video_dir datasets/ego4d/v2/full_scale_2fps_384 --vision_pretrained /workspace/intern_ckpt/Mirror/hf-mirror/models/google/siglip-large-patch16-384
 ```
 
 - Please run the script in ```videollm-online/``` root folder.
@@ -27,9 +27,9 @@ python -m data.preprocess.encode --num_gpus 8 --video_dir datasets/ego4d/v2/full
 #### Narration Refinement
 
 ```
-python -m data.preprocess.ego4d_narration_refinement --llm_pretrained meta-llama/Meta-Llama-3-8B-Instruct --anno_root datasets/ego4d/v2/annotations --split train
+python -m data.preprocess.ego4d_narration_refinement --llm_pretrained /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct --anno_root datasets/ego4d/v2/annotations --split train
 
-python -m data.preprocess.ego4d_narration_refinement --llm_pretrained meta-llama/Meta-Llama-3-8B-Instruct --anno_root datasets/ego4d/v2/annotations --split val
+python -m data.preprocess.ego4d_narration_refinement --llm_pretrained /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct --anno_root datasets/ego4d/v2/annotations --split val
 ```
 
 - Please run the script in ```videollm-online/``` root folder.

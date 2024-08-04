@@ -11,8 +11,8 @@ class LiveTrainingArguments(TrainingArguments):
     train_datasets: list[str] = None
     eval_datasets: list[str] = None
     stream_loss_weight: float = 1.0
-    llm_pretrained: str = 'meta-llama/Meta-Llama-3-8B-Instruct'
-    vision_pretrained: str = 'google/siglip-large-patch16-384'
+    llm_pretrained: str = '/workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct'
+    vision_pretrained: str = '/workspace/intern_ckpt/Mirror/hf-mirror/models/google/siglip-large-patch16-384'
     lora_modules: str = "model.*(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)|lm_head$"
     lora_r: int = 128
     lora_alpha: int = 256

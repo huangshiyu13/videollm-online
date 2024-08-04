@@ -36,7 +36,7 @@ python -m demo.cli --resume_from_checkpoint chenjoya/videollm-online-8b-v1plus
 
 - (Deprecated, HF Spaces too slow) Try demo at <a href="https://huggingface.co/spaces/chenjoya/videollm-online" target="_blank"> <img alt="Demo" src="https://img.shields.io/badge/🤗 Hugging Face Spaces-ffc107?color=ffc107" /> </a>
 
-By passing ```--resume_from_checkpoint chenjoya/videollm-online-8b-v1plus```, the PEFT checkpoint will be automatically downloaded and applied to ```meta-llama/Meta-Llama-3-8B-Instruct```.
+By passing ```--resume_from_checkpoint chenjoya/videollm-online-8b-v1plus```, the PEFT checkpoint will be automatically downloaded and applied to ```/workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct```.
 
 ### Installation
 
@@ -67,7 +67,7 @@ mv ChatTTS demo/rendering/
 
 - Download streaming dialogue data from <a href="https://huggingface.co/datasets/chenjoya/videollm-online-chat-ego4d-134k" target="_blank"><img alt="Data" src="https://img.shields.io/badge/🤗 Hugging Face Datasets-8e44ad?color=8e44ad" /></a>
 
-- Distributed preprocess video frames: 2 FPS and 384 resolution, then using ```google/siglip-large-patch16-384``` to extract CLS with avg pooled  3x3 spatial tokens. Please refer to instructions under [data/preprocess/](data/preprocess/).
+- Distributed preprocess video frames: 2 FPS and 384 resolution, then using ```/workspace/intern_ckpt/Mirror/hf-mirror/models/google/siglip-large-patch16-384``` to extract CLS with avg pooled  3x3 spatial tokens. Please refer to instructions under [data/preprocess/](data/preprocess/).
 
 - Refer to the examples under [scripts/](scripts/)
 
@@ -76,9 +76,9 @@ mv ChatTTS demo/rendering/
 ### Model Zoo
 
 #### [VideoLLM-online-8B-v1+](https://huggingface.co/chenjoya/videollm-online-8b-v1plus)
-* LLM: meta-llama/Meta-Llama-3-8B-Instruct
+* LLM: /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct
 * Vision Strategy:
-    * Frame Encoder: google/siglip-large-patch16-384
+    * Frame Encoder: /workspace/intern_ckpt/Mirror/hf-mirror/models/google/siglip-large-patch16-384
     * Frame Tokens: CLS token + 3x3 average pooled spatial tokens
     * Frame FPS: 2 for training, 2~10 for inference
     * Frame Resolution: max resolution 384, with zero-padding to keep aspect ratio
@@ -86,9 +86,9 @@ mv ChatTTS demo/rendering/
 * Training Data: Ego4D Narration Stream 113K + Ego4D GoalStep Stream 21K 
 
 #### [VideoLLM-online-8B-v1](...) 
-* LLM: meta-llama/Meta-Llama-3-8B-Instruct
+* LLM: /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct
 * Vision Strategy:
-    * Frame Encoder: google/siglip-large-patch16-384
+    * Frame Encoder: /workspace/intern_ckpt/Mirror/hf-mirror/models/google/siglip-large-patch16-384
     * Frame Tokens: CLS token
     * Frame FPS: 2 for training, 2~10 for inference
     * Frame Resolution: max resolution 384, with zero-padding to keep aspect ratio

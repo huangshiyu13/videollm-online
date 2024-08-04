@@ -58,8 +58,8 @@ class Ego4DLiveChatGeneration(Ego4D):
                 'prompt': prompt,
                 'timestamps': timestamps,
             })
-        self.tokenizer = AutoTokenizer.from_pretrained('meta-llama/Meta-Llama-3-8B-Instruct', use_fast=True)
-        self.model = AutoModelForCausalLM.from_pretrained('meta-llama/Meta-Llama-3-8B-Instruct', torch_dtype='auto', attn_implementation='sdpa')
+        self.tokenizer = AutoTokenizer.from_pretrained('/workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct', use_fast=True)
+        self.model = AutoModelForCausalLM.from_pretrained('/workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct', torch_dtype='auto', attn_implementation='sdpa')
         self.model.to('cuda')
         self.model.eval()
 

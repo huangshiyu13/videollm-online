@@ -123,7 +123,7 @@ def build_live_tokenizer_and_update_config(llm_pretrained: str, model_config: Li
 
 if __name__ == '__main__':
     config = LiveConfigMixin(frame_token_interval=',', frame_token_cls=True, frame_token_pooled=[3,3], frame_num_tokens=10)
-    tokenizer = build_live_tokenizer_and_update_config('meta-llama/Meta-Llama-3-8B-Instruct', config)
+    tokenizer = build_live_tokenizer_and_update_config('/workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct', config)
     chat = [
         {'role': 'system', 'content': 'cool.'},
         {'role': 'stream', 'num_frames': 2, 'learn': 1},
