@@ -27,9 +27,9 @@ python -m data.preprocess.encode --num_gpus 8 --video_dir datasets/ego4d/v2/full
 #### Narration Refinement
 
 ```
-python -m data.preprocess.ego4d_narration_refinement --llm_pretrained /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct --anno_root datasets/ego4d/v2/annotations --split train
+python -m data.preprocess.ego4d_narration_refinement --llm_pretrained /workspace/intern_ckpt/Mirror/modelscope/models/llm-research/meta-llama-3-8b-instruct --anno_root datasets/ego4d/v2/annotations --split train
 
-python -m data.preprocess.ego4d_narration_refinement --llm_pretrained /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct --anno_root datasets/ego4d/v2/annotations --split val
+python -m data.preprocess.ego4d_narration_refinement --llm_pretrained /workspace/intern_ckpt/Mirror/modelscope/models/llm-research/meta-llama-3-8b-instruct --anno_root datasets/ego4d/v2/annotations --split val
 ```
 
 - Please run the script in ```videollm-online/``` root folder.

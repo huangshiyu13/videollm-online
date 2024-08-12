@@ -1,6 +1,6 @@
 ## Usage
 
-下载好模型后，修改`adapter_config.json`中的`base_model_name_or_path`为`/workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct`
+下载好模型后，修改`adapter_config.json`中的`base_model_name_or_path`为`/workspace/intern_ckpt/Mirror/modelscope/models/llm-research/meta-llama-3-8b-instruct`
 
 conda使用`videollm_online`环境
 
@@ -15,4 +15,10 @@ chmod +x /usr/bin/ffprobe
 验证版本：
 ```sh
 ffmpeg -version
+```
+
+## 运行
+    
+```sh
+bash run.sh
 ```

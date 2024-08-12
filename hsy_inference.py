@@ -7,7 +7,6 @@ from models import build_model_and_tokenizer, parse_args, fast_greedy_generate
 
 logger = transformers.logging.get_logger('liveinfer')
 
-# python -m demo.cli --resume_from_checkpoint ... 
 
 class LiveInfer:
     def __init__(self, ) -> None:

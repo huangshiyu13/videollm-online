@@ -5,7 +5,7 @@ from dataclasses import asdict
 from models import build_model_and_tokenizer, parse_args
 from data import build_concat_train_dataset, build_eval_dataset_dict, get_data_collator, get_compute_metrics_dict
 
-# TOKENIZERS_PARALLELISM=False python -m test.dataloader --live_version live1+ --output_dir outputs/debug --train_datasets ego4d_refined_narration_val --eval_datasets ego4d_refined_narration_val --augmentation True --llm_pretrained /workspace/intern_ckpt/Mirror/huggingface/models/Meta-Llama-3-8B-Instruct --attn_implementation sdpa
+# TOKENIZERS_PARALLELISM=False python -m test.dataloader --live_version live1+ --output_dir outputs/debug --train_datasets ego4d_refined_narration_val --eval_datasets ego4d_refined_narration_val --augmentation True --llm_pretrained /workspace/intern_ckpt/Mirror/modelscope/models/llm-research/meta-llama-3-8b-instruct --attn_implementation sdpa
 
 if __name__ == '__main__':
     args = parse_args()

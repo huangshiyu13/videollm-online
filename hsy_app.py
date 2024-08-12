@@ -1,7 +1,6 @@
 import os, torchvision, transformers
 
 torchvision.set_video_backend('video_reader')
-from functools import partial
 import gradio as gr
 
 from data.utils import ffmpeg_once
@@ -32,7 +31,7 @@ with gr.Blocks(title="VideoLLM-online", css=css) as demo:
             gr_video = gr.Video(label="video stream", elem_id="gr_video", visible=True, sources=['upload'],
                                 autoplay=True)
             gr_examples = gr.Examples(
-                examples=[["demo/assets/cooking.mp4"], ["demo/assets/bicycle.mp4"], ["demo/assets/egoexo4d.mp4"]],
+                examples=[["demo/assets/cooking.mp4"], ["demo/assets/bicycle.mp4"]],
                 inputs=gr_video,
                 outputs=gr_video,
                 label="Examples"
@@ -110,7 +109,12 @@ with gr.Blocks(title="VideoLLM-online", css=css) as demo:
             while True:
                 query, response = liveinfer()
                 if query or response:
-                    history[-1][1] += f'\n{response}'
+                    print("history:",history, "response:",response)
+                    # if len(history) == 0:
+                    history.append((query, response))
+                    # else:
+
+                        # history[-1][1] += f'\n{response}'
                 yield history
 
 
@@ -118,4 +122,4 @@ with gr.Blocks(title="VideoLLM-online", css=css) as demo:
                                             outputs=[gr_chat_interface.chatbot])
 
     demo.queue()
-    demo.launch(share=False,server_port=5001,server_name="0.0.0.0")
+    demo.launch(share=False, server_port=5001, server_name="0.0.0.0")
