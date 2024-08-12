@@ -18,13 +18,17 @@ def main(liveinfer: LiveInfer):
                                      name + f'_{liveinfer.frame_fps}fps_{liveinfer.frame_resolution}' + ext)
     save_history_path = src_video_path.replace('.mp4', '.json')
     if not os.path.exists(ffmpeg_video_path):
+        print(f'Converting {src_video_path} to {ffmpeg_video_path}...')
         os.makedirs(os.path.dirname(ffmpeg_video_path), exist_ok=True)
         ffmpeg_once(src_video_path, ffmpeg_video_path, fps=liveinfer.frame_fps, resolution=liveinfer.frame_resolution)
         logger.warning(
             f'{src_video_path} -> {ffmpeg_video_path}, {liveinfer.frame_fps} FPS, {liveinfer.frame_resolution} Resolution')
 
+    print(f'Loading video from {ffmpeg_video_path}...')
     liveinfer.load_video(ffmpeg_video_path)
-    liveinfer.input_query_stream('Please narrate the video in real time.', video_time=0.0)
+    response = liveinfer.input_query_stream('Please narrate the video in real time.', video_time=0.0)
+    print(f"Init response: {response}")
+
     # liveinfer.input_query_stream('Hi, who are you?', video_time=1.0)
     # liveinfer.input_query_stream('Yes, I want to check its safety.', video_time=3.0)
     # liveinfer.input_query_stream('No, I am going to install something to alert pedestrians to move aside. Could you guess what it is?', video_time=12.5)
@@ -58,5 +62,5 @@ def main(liveinfer: LiveInfer):
 
 
 if __name__ == '__main__':
-    liveinfer = LiveInfer()
+    liveinfer = LiveInfer(load_model=True)
     main(liveinfer)

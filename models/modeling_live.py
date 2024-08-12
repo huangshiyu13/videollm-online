@@ -195,9 +195,17 @@ def build_live(
     resume_from_checkpoint: str = '',
     attn_implementation: str = 'flash_attention_2',
     torch_dtype: str | torch.dtype = 'auto',
+    load_model: bool = True,
     **kwargs
 ):
-    model = model_class.from_pretrained(llm_pretrained, config=config_class.from_pretrained(llm_pretrained, **kwargs), torch_dtype=torch_dtype, attn_implementation=attn_implementation)
+    print(f"loading model from {llm_pretrained}")
+    if load_model:
+        model = model_class.from_pretrained(llm_pretrained, config=config_class.from_pretrained(llm_pretrained, **kwargs), torch_dtype=torch_dtype, attn_implementation=attn_implementation)
+    else:
+        from transformers import AutoConfig, AutoModel
+        config = AutoConfig.from_pretrained(llm_pretrained)
+        model = AutoModel.from_config(config)
+    print(f"loaded model from {llm_pretrained}")
     tokenizer = build_live_tokenizer_and_update_config(llm_pretrained, model.config)
     if is_training:
         lora_config = LoraConfig(
